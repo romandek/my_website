@@ -11,7 +11,7 @@ const theme = merge(tailwind, {
     toggleIcon: `#8377D1`, 
     background: `#FFFCF4`,
     heading: `#202040`, 
-    divide: tailwind.colors.gray[3],
+    divide: tailwind.colors.gray[4],
     modes: {
       dark: {
         text: `#FFFCF4`, 

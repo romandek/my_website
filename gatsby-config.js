@@ -9,7 +9,7 @@ module.exports = {
       siteTitle: `Roman Dek`,
       siteTitleAlt: `Roman Dek — data analyst, developer, teacher`,
       siteHeadline: `Roman Dek`,
-      siteUrl: `https://romnadek.com`,
+      siteUrl: `https://romandek.com`,
       siteDescription: `Personal website of Roman Dek.`,
       siteLanguage: `en`,
       siteImage: `/banner.jpg`,

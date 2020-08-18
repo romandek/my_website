@@ -28,6 +28,8 @@ const theme = merge(tailwind, {
   fonts: {
     body: `"IBM Plex Sans", -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
   },
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  space: [0, '0.25rem', '0.5rem', '1rem', '2rem', '4rem', '8rem', '16rem', '32rem'],
   styles: {
     root: {
       color: `text`,
@@ -66,17 +68,17 @@ const theme = merge(tailwind, {
     },
     h1: {
       variant: `text.heading`,
-      fontSize: [5, 6, 7],
+      fontSize: [4, 5, 6],
       mt: 4,
     },
     h2: {
       variant: `text.heading`,
-      fontSize: [4, 5, 6],
+      fontSize: [3, 4, 5],
       mt: 4,
     },
     h3: {
       variant: `text.heading`,
-      fontSize: [3, 4, 5],
+      fontSize: [2, 3, 4],
       mt: 4,
     },
     h4: {

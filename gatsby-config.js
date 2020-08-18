@@ -26,6 +26,10 @@ module.exports = {
             slug: `/blog`,
           },
           {
+            title: `Projects`,
+            slug: `/projects`,
+          },
+          {
             title: `About`,
             slug: `/about`,
           },
@@ -82,6 +86,18 @@ module.exports = {
         reportFilename: `_bundle.html`,
         openAnalyzer: false,
       },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [{
+          resolve: "gatsby-remark-external-links",
+          options: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
+        }]
+      }
     },
   ].filter(Boolean),
 }

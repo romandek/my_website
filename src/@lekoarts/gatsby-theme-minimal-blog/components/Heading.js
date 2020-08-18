@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from '@lekoarts/gatsby-theme-minimal-blog/src/components/Box'
+import Box from '@theme-ui/components/src/Box'
 
 export const Heading = React.forwardRef((props, ref) => (
   <Box

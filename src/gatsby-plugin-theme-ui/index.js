@@ -14,13 +14,13 @@ const theme = merge(tailwind, {
     divide: tailwind.colors.gray[4],
     modes: {
       dark: {
-        text: `#FFFCF4`,
+        text: `#CCC9C1`,
         primary: `#00a6a6`,
         secondary: `#8377D1`,
         toggleIcon: `#8377D1`,
         background: `#202040`,
-        heading: `#FFFCF4`, 
-        divide: `#404060`,
+        heading: `#CCC9C1`, 
+        divide: `#372B85`, //`#404060`,
         muted: tailwind.colors.gray[8],
       },
     },
@@ -42,15 +42,21 @@ const theme = merge(tailwind, {
       MozOsxFontSmoothing: `grayscale`,
     },
     p: {
-      fontSize: [1, 1, 2],
+      fontSize: [2, 2, 3],
       letterSpacing: `-0.003em`,
       lineHeight: `body`,
       "--baseline-multiplier": 0.179,
       "--x-height-multiplier": 0.35,
     },
     ul: {
+      listStyle: `none`,
+      pl: 0,
       li: {
-        fontSize: [1, 1, 2],
+        '&:before': {
+          content: `'–'`,
+          pr: [2],
+        },
+        fontSize: [2, 2, 3],
         letterSpacing: `-0.003em`,
         lineHeight: `body`,
         "--baseline-multiplier": 0.179,
@@ -175,7 +181,7 @@ const theme = merge(tailwind, {
     },
     listItem: {
       fontSize: [1, 2, 3],
-      color: `text`,
+      color: `primary`,
     },
   },
 })

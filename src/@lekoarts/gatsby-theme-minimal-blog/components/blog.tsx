@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { jsx, Heading, Link as TLink } from "theme-ui"
+import { jsx, Link as TLink } from "theme-ui"
+import { Heading } from "./Heading"
 import { Link } from "gatsby"
 import { Flex } from "@theme-ui/components"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"

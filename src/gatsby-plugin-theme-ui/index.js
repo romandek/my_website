@@ -12,6 +12,7 @@ const theme = merge(tailwind, {
     background: `#FFFCF4`,
     heading: `#202040`,
     divide: tailwind.colors.gray[4],
+    codebg: tailwind.colors.gray[3],
     modes: {
       dark: {
         text: `#CCC9C1`,
@@ -22,6 +23,7 @@ const theme = merge(tailwind, {
         heading: `#CCC9C1`, 
         divide: `#372B85`, //`#404060`,
         muted: tailwind.colors.gray[8],
+        codebg: tailwind.colors.gray[7],
       },
     },
   },

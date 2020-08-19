@@ -31,8 +31,8 @@ const code = {
   },
   "p > code, li > code": {
     fontSize: [1, 2, 2],
-    bg: `gray.2`,
-    color: `gray.8`,
+    bg: `codebg`,
+    color: `text`,
     px: 2,
     py: 1,
     borderRadius: `2px`,

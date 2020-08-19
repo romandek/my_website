@@ -1,0 +1,48 @@
+---
+title: Comprehensive shadowing in Gatsby.js
+date: 2020-08-19T09:07:26.915Z
+tags:
+  - Gatsby.js
+  - JavaScript
+slug: /blog/comprehensive-shadowing-gatsby-js
+---
+
+I guess I am that person now, building websites with React. Well, not exactly. With not muc deliberation, I've settled with Gatsby.js. I've found an opensource start+theme, and badabim badabum I have a localhost website. Now, I'm not a JavaScript developer, so the thought of making modifications to the theme and website was terrifying. But, fotunately, Gatsby.js has a nifty shadowing feature to override the original files! It seeps pretty simple in theory, but in practive it is not that easy. Hence, this post is for quick and straight-to-the-point refence for shadowing themes in Gatsby.js. 
+
+My setup is pretty vanilla. Just installed the [@lekoarts/gatsby-theme-minimal-blog](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-minimal-blog) as a Gatsby starter:
+
+```shell
+gatsby new my_website LekoArts/gatsby-starter-minimal-blog
+```
+
+## 1. Create shadowing directory 
+
+Shadowing directory in Gatsby in essence is `<root_path>/src/<theme_path>`. So in my case with Lekoarts' Minimal blog them it is `my_website/src/@lekoarts/gatsby-theme-minimal-blog`. `<theme_path>` is the full path of the theme from the `node_modules` directory. 
+
+## 2. Shadowing the theme components
+
+Theme components are located in the theme's `/src/components` directory, so in `my_website/node_modules/@lekoarts/gatsby-theme-minimal-blog/src/components`. To shadow them, we must create a components directory in our shadowing directory like this: `/my_website/src/@lekoarts/gatsby-theme-minimal-blog/components`. In essence, this is the same this works the same with all the files in the theme's `src` directory.
+
+To shadow the files, simply copy the the original file to the shadowing directory and make the modifications. 
+
+Most of Gatsby files will have import statements at the top, usually with relative paths. You will need to replace those references to full paths. So, for example, if you are shadowing `/components/layout.tsx` file, the line
+
+```tsx
+import Layout from "./layout"
+```
+
+now will look like this
+
+```tsx
+import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
+```
+
+## 3. Shadowing @theme-ui styles
+
+To modify Gatsby theme styles, you will need to create another shadowing directory in the root of your project `src/gatsby-plugin-theme-ui`. The original file is, curiously, located at `/my_website/node_modules/@lekoarts/gatsby-theme-minimal-blog/src/gatsby-plugin-theme-ui/index.js`. Just copy that file into the new shadowing directory and make modifications. In some other themes, there might de different files, or even separate files for colors, fonts, styles, etc., but they should be somewhere in the theme's directory. Of course, you will need to update relative paths to absolute paths.
+
+## 4. Shadowing @theme-ui components
+
+Another curious thing that I came across that, if you want to shadow components from `/my_website/node_modules/@theme-ui/components/src` directory, you will need to place them in the theme's shadowing directory, that is in `/my_website/src/@lekoarts/gatsby-theme-minimal-blog/components`. Don't forget to update relative paths. 
+
+I hope this will be somewhat helpful to someone. Cheers.

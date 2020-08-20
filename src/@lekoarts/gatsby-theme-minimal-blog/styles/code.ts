@@ -1,5 +1,5 @@
 import { tint, darken } from "@theme-ui/color"
-import theme from "prism-react-renderer/themes/nightOwl"
+import theme from "prism-react-renderer/themes/dracula"
 
 const code = {
   "[data-name='live-editor']": {
@@ -42,7 +42,7 @@ const code = {
     fontSize: [1, 1, 2],
     position: `relative`,
     webkitOverflowScrolling: `touch`,
-    bg: darken(theme.plain.backgroundColor, 0.1),
+    bg: darken(theme.plain.backgroundColor, 0.05),
     overflow: `auto`,
     borderRadius: `2px`,
     mx: [0, 0, 0, -3],

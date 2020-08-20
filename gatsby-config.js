@@ -5,6 +5,7 @@ require(`dotenv`).config({
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
+  
   siteMetadata: {
       siteTitle: `Roman Dek`,
       siteTitleAlt: `Roman Dek — data analyst, developer, teacher`,
@@ -20,6 +21,7 @@ module.exports = {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
       options: {
+        mdx: false, 
         navigation: [
           {
             title: `Blog`,
@@ -88,16 +90,18 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [{
-          resolve: "gatsby-remark-external-links",
-          options: {
-            target: "_blank",
-            rel: "noopener noreferrer"
-          }
-        }]
+        gatsbyRemarkPlugins: [
+          { 
+            resolve: `gatsby-remark-external-links`,
+            options: {
+                target: "_blank",
+                rel: "noopener noreferrer nofollow",
+            },
+          },
+        ],
       }
-    },
+    }
   ].filter(Boolean),
 }

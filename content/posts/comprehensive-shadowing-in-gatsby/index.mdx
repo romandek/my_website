@@ -27,13 +27,13 @@ To shadow the files, simply copy the the original file to the shadowing director
 
 Most of Gatsby files will have import statements at the top, usually with relative paths. You will need to replace those references to full paths. So, for example, if you are shadowing `/components/layout.tsx` file, the line
 
-```tsx
+```tsx:title=/components/layout.tsx
 import Layout from "./layout"
 ```
 
 now will look like this
 
-```tsx
+```tsx:title=/components/layout.tsx
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
 ```
 

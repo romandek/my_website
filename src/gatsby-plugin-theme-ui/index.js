@@ -52,10 +52,10 @@ const theme = merge(tailwind, {
     },
     ul: {
       listStyle: `none`,
-      pl: 0,
+      //pl: 0,
       li: {
         '&:before': {
-          content: `'–'`,
+          content: `'-'`,
           pr: [2],
         },
         fontSize: [2, 2, 3],
@@ -63,6 +63,14 @@ const theme = merge(tailwind, {
         lineHeight: `body`,
         "--baseline-multiplier": 0.179,
         "--x-height-multiplier": 0.35,
+        ul: {
+          li: {
+            "&:before": {
+              content: `'+'`,
+              pr: [2],
+            }
+          }
+        }
       },
     },
     ol: {

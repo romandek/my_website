@@ -8,7 +8,7 @@ module.exports = {
   
   siteMetadata: {
       siteTitle: `Roman Dek`,
-      siteTitleAlt: `Roman Dek — data analyst, developer, teacher`,
+      siteTitleAlt: `Roman Dek — data analyst, developer`,
       siteHeadline: `Roman Dek`,
       siteUrl: `https://romandek.com`,
       siteDescription: `Personal website of Roman Dek.`,
@@ -22,6 +22,7 @@ module.exports = {
       // See the theme's README for all available options
       options: {
         mdx: false, 
+        blogPath: "/blog",
         navigation: [
           {
             title: `Blog`,
@@ -47,6 +48,7 @@ module.exports = {
           },
         ],
       },
+      feedTitle: `Roman Dek — data analyst, developer`,
     },
     {
       resolve: `gatsby-plugin-google-analytics`,

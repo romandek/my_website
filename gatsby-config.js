@@ -51,6 +51,13 @@ module.exports = {
       feedTitle: `Roman Dek — data analyst, developer`,
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `kb`,
+        path: `content/kb`
+      }
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_ID,

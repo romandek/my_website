@@ -68,3 +68,5 @@ public
 .vscode
 .DS_Store
 content/drafts
+package-lock.json
+package.json

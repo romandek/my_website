@@ -50,13 +50,13 @@ module.exports = {
       },
       feedTitle: `Roman Dek — data analyst, developer`,
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `kb`,
-        path: `content/kb`
-      }
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `kbArticles`,
+    //     path: `content/kb-content`
+    //   }
+    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

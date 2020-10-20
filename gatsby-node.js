@@ -22,7 +22,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   latestPosts.forEach((latestPost) => {
     createRedirect({
-      fromPath: "/latest",
+      fromPath: "/blog/latest",
       toPath: latestPost.node.slug,
       isPermanent: true,
     })

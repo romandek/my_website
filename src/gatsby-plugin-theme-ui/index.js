@@ -2,25 +2,25 @@ import { merge } from "theme-ui"
 import { tailwind } from "@theme-ui/presets"
 
 const theme = merge(tailwind, {
-  initialColorModeName: `light`,
+  initialColorModeName: `dark`,
   useCustomProperties: true,
   colors: {
-    text: `#202040`,
+    text: `#202030`,
     primary: `#067BC2`,
-    secondary: `#5623A9`,
-    toggleIcon: `#5623A9`,
-    background: `#FEFDFA`,
-    heading: `#202040`,
+    secondary: `#7B45B9`,//`#8852e0`, //`#5623A9`,
+    toggleIcon: `#7B45B9`,
+    background: `#FEFEFC`,
+    heading: `#202030`,
     divide: tailwind.colors.gray[4],
     codebg: tailwind.colors.gray[3],
     modes: {
       dark: {
-        text: `#FCF8EE`,
+        text: `#D9D5D2`,
         primary: `#129FF8`,
-        secondary: `#AD88E7`,
-        toggleIcon: `#AD88E7`,
+        secondary: `#A57EF3`,
+        toggleIcon: `#A57EF3`, //`#AD88E7`,
         background: `#202040`,
-        heading: `#FCF8EE`, 
+        heading: `#D9D5D2`, 
         divide: `#30305F`, //`#404060`,
         muted: tailwind.colors.gray[8],
         codebg: tailwind.colors.gray[7],
@@ -31,7 +31,7 @@ const theme = merge(tailwind, {
     body: `"IBM Plex Sans", -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-  space: [0, '0.25rem', '0.5rem', '1rem', '2rem', '4rem', '8rem', '16rem', '32rem'],
+  space: [0, '0.25rem', '0.5rem', '1rem', '1.5rem', '2rem', '4rem', '8rem', '16rem', '32rem'],
   styles: {
     root: {
       color: `text`,
@@ -45,10 +45,11 @@ const theme = merge(tailwind, {
     },
     p: {
       fontSize: [2, 2, 3],
-      letterSpacing: `-0.003em`,
+      //letterSpacing: `-0.003em`,
       lineHeight: `body`,
       "--baseline-multiplier": 0.179,
       "--x-height-multiplier": 0.35,
+      mb: 4,
     },
     ul: {
       listStyle: `none`,
@@ -152,7 +153,7 @@ const theme = merge(tailwind, {
   layout: {
     container: {
       padding: [3, 4],
-      maxWidth: `1024px`,
+      maxWidth: `800px`,
     },
   },
   text: {

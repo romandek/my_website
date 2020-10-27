@@ -26,9 +26,6 @@
     "gatsby-plugin-sitemap": "^2.2.19",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.10",
     "gatsby-remark-external-links": "0.0.4",
-    "gatsby-theme-docs": "0.0.0",
-    "gatsby-theme-document": "^1.0.10",
-    "gatsby-theme-notes": "^2.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

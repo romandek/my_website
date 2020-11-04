@@ -1,55 +1,6 @@
 const kebabCase = require(`lodash.kebabcase`)
 const withDefaults = require(`@lekoarts/gatsby-theme-minimal-blog-core/utils/default-options`)
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createRedirect, createPage } = actions
-
-  const result = await graphql(`
-    query {
-      allPost(limit: 1, sort: {fields: date, order: DESC}) {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-      allNote(limit: 1, sort: {fields: date, order: DESC}) {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-    }
-  `)
-
-  if (result.errors) {
-    reporter.panicOnBuild(`There was an error fetching the latest blog post`, result.errors)
-    return
-  }
-
-  const latestPosts = result.data.allPost.edges
-  const latestNotes = result.data.allNote.edges
-
-  latestPosts.forEach((latestPost) => {
-    createRedirect({
-      fromPath: "/blog/latest",
-      toPath: latestPost.node.slug,
-      isPermanent: true,
-      force: true
-    })
-  })
-
-  latestNotes.forEach((latestNote) => {
-    createRedirect({
-      fromPath: "/notes/latest",
-      toPath: latestNote.node.slug,
-      isPermanent: true,
-      force: true
-    })
-  })
-}
-
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -151,7 +102,7 @@ const labelsTemplate = require.resolve(`./src/@lekoarts/gatsby-theme-minimal-blo
 const labelTemplate = require.resolve(`./src/@lekoarts/gatsby-theme-minimal-blog-core/src/templates/label-query.tsx`)
 
 exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
-  const { createPage } = actions
+  const { createRedirect, createPage } = actions
 
   const { basePath, formatString } = withDefaults(themeOptions)
 
@@ -159,7 +110,12 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
 
   const result = await graphql(`
     query {
-      allNote {
+      allNote(sort: {fields: date, order: DESC}) {
+        nodes {
+          slug
+        }
+      }
+      allPost(limit: 1, sort: {fields: date, order: DESC}) {
         nodes {
           slug
         }
@@ -177,9 +133,12 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     return
   }
 
-  const notes = result.data.allNote.nodes
+  const allNotes = result.data.allNote.nodes
+  const latestPost = result.data.allPost.nodes[0]
+  const latestNote = result.data.allNote.nodes[0]
+  const labels = result.data.labels.group
 
-  notes.forEach((note) => {
+  allNotes.forEach((note) => {
     createPage({
       path: note.slug,
       component: noteTemplate,
@@ -194,8 +153,6 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     component: labelsTemplate,
   })
 
-  const labels = result.data.labels.group
-
   if (labels.length > 0) {
     labels.forEach((label) => {
       createPage({
@@ -209,4 +166,18 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
       })
     })
   }
+
+  createRedirect({
+    fromPath: "/blog/latest",
+    toPath: latestPost.slug,
+    isPermanent: true,
+    force: true
+  })
+
+  createRedirect({
+    fromPath: "/notes/latest",
+    toPath: latestNote.slug,
+    isPermanent: true,
+    force: true
+  })
 } 

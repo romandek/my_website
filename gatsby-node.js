@@ -13,6 +13,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
+      allNote(limit: 1, sort: {fields: date, order: DESC}) {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `)
 
@@ -22,12 +29,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   const latestPosts = result.data.allPost.edges
+  const latestNotes = result.data.allNote.edges
 
   latestPosts.forEach((latestPost) => {
     createRedirect({
       fromPath: "/blog/latest",
       toPath: latestPost.node.slug,
-      isPermanent: true,
+      isPermanent: false,
+    })
+  })
+
+  latestNotes.forEach((latestNote) => {
+    createRedirect({
+      fromPath: "/notes/latest",
+      toPath: latestNote.node.slug,
+      isPermanent: false,
     })
   })
 }

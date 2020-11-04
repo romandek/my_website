@@ -51,7 +51,7 @@ export default Notes
 
 export const query = graphql`
     query {
-        allNote {
+        allNote(sort: { fields: date, order: DESC }) {
             nodes {
                 title
                 date

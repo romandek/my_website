@@ -1,15 +1,14 @@
 /** @jsx jsx */
-import { jsx, Link as TLink } from "theme-ui"
-import { Heading } from "./Heading"
-import { Link } from "gatsby"
+import { jsx, Heading, Link as TLink } from "theme-ui"
 import { Flex } from "@theme-ui/components"
+import { Link } from "gatsby"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
-import Listing from "./listing"
 import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
+import Listing from "@lekoarts/gatsby-theme-minimal-blog/src/components/listing"
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
 
-type PostsProps = {
+type TagProps = {
   posts: {
     slug: string
     title: string
@@ -17,21 +16,27 @@ type PostsProps = {
     excerpt: string
     description: string
     timeToRead?: number
-    tags?: {
+    tags: {
       name: string
       slug: string
     }[]
   }[]
+  pageContext: {
+    isCreatedByStatefulCreatePages: boolean
+    slug: string
+    name: string
+    [key: string]: any
+  }
 }
 
-const Blog = ({ posts }: PostsProps) => {
+const Tag = ({ posts, pageContext }: TagProps) => {
   const { tagsPath, basePath } = useMinimalBlogConfig()
 
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO title={`Tag: ${pageContext.name}`} />
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, flexFlow: `wrap` }}>
-        <Heading variant="styles.h1" sx={{ mt: 0 }}>Blog</Heading>
+        <Heading variant="styles.h1" sx={{ mt: 0 }}>{pageContext.name}</Heading>
         <TLink as={Link} sx={{ variant: `links.secondary` }} to={replaceSlashes(`/${basePath}/${tagsPath}`)}>
           View all tags
         </TLink>
@@ -41,4 +46,4 @@ const Blog = ({ posts }: PostsProps) => {
   )
 }
 
-export default Blog
+export default Tag

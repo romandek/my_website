@@ -29,6 +29,10 @@ module.exports = {
             slug: `/blog`,
           },
           {
+            title: `Notes`,
+            slug: `/notes`,
+          },
+          {
             title: `Projects`,
             slug: `/projects`,
           },
@@ -104,6 +108,13 @@ module.exports = {
           },
         ],
       }
-    }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "notes",
+        path: `content/notes`,
+      },
+    },
   ].filter(Boolean),
 }

@@ -85,6 +85,13 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "notes",
+        path: `content/notes`,
+      },
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
     shouldAnalyseBundle && {
@@ -108,13 +115,6 @@ module.exports = {
           },
         ],
       }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: "notes",
-        path: `content/notes`,
-      },
     },
   ].filter(Boolean),
 }

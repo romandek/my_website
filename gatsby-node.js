@@ -36,6 +36,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       fromPath: "/blog/latest",
       toPath: latestPost.node.slug,
       isPermanent: true,
+      force: true
     })
   })
 
@@ -44,6 +45,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       fromPath: "/notes/latest",
       toPath: latestNote.node.slug,
       isPermanent: true,
+      force: true
     })
   })
 }

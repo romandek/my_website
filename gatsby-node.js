@@ -35,7 +35,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createRedirect({
       fromPath: "/blog/latest",
       toPath: latestPost.node.slug,
-      isPermanent: false,
+      isPermanent: true,
     })
   })
 
@@ -43,7 +43,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createRedirect({
       fromPath: "/notes/latest",
       toPath: latestNote.node.slug,
-      isPermanent: false,
+      isPermanent: true,
     })
   })
 }

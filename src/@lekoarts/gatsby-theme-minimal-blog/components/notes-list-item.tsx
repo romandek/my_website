@@ -26,7 +26,7 @@ const BlogListItem = ({ note, showTags = true }: NotesListItemProps) => (
     <TLink as={Link} to={note.slug} sx={{ fontSize: [2, 3, 4], fontWeight: `medium`, color: `text` }}>
       {note.title}
     </TLink>
-    <p sx={{ color: `secondary`, mt: 1, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
+    <p sx={{ color: `tertiary`, mt: 1, a: { color: `tertiary` }, fontSize: [1, 1, 2] }}>
       <time>{note.date}</time>
       {note.labels && showTags && (
         <React.Fragment>

@@ -8,20 +8,22 @@ const theme = merge(tailwind, {
     text: `#202030`,
     primary: `#067BC2`,
     secondary: `#7B45B9`,//`#8852e0`, //`#5623A9`,
+    tertiary: `#A390CF`,
     toggleIcon: `#7B45B9`,
     background: `#FEFEFC`,
     heading: `#202030`,
-    divide: tailwind.colors.gray[4],
+    divide: `#F7F7E8`,
     codebg: tailwind.colors.gray[3],
     modes: {
       dark: {
         text: `#D9D5D2`,
         primary: `#129FF8`,
         secondary: `#A57EF3`,
+        tertiary: `#495172`,
         toggleIcon: `#A57EF3`, //`#AD88E7`,
         background: `#202040`,
         heading: `#D9D5D2`, 
-        divide: `#30305F`, //`#404060`,
+        divide: `#292951`, //`#404060`,
         muted: tailwind.colors.gray[8],
         codebg: tailwind.colors.gray[7],
       },
@@ -181,6 +183,17 @@ const theme = merge(tailwind, {
   links: {
     secondary: {
       color: `secondary`,
+      textDecoration: `none`,
+      ":hover": {
+        color: `heading`,
+        textDecoration: `underline`,
+      },
+      ":focus": {
+        color: `heading`,
+      },
+    },
+    tertiary: {
+      color: `tertiary`,
       textDecoration: `none`,
       ":hover": {
         color: `heading`,

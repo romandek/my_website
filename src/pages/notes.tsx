@@ -15,7 +15,7 @@ const ListItem = ({ item }) => {
       <TLink as={Link} to={item.slug} sx={{ fontSize: [2, 3, 4], fontWeight: `medium`, color: `text` }}>
         {item.title}
       </TLink>
-      <p sx={{ color: `secondary`, mt: 1, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
+      <p sx={{ color: `tertiary`, mt: 1, a: { color: `tertiary` }, fontSize: [1, 1, 2] }}>
       {item.labels && (
         <React.Fragment>
           <ItemLabels labels={item.labels} />

@@ -43,7 +43,7 @@ const Post = ({ data: { post } }: PostProps) => (
       pathname={post.slug}
     />
     <Heading variant="styles.h1">{post.title}</Heading>
-    <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
+    <p sx={{ color: `tertiary`, mt: 3, a: { color: `tertiary` }, fontSize: [1, 1, 2] }}>
       <time>{post.date}</time>
       {post.tags && (
         <React.Fragment>

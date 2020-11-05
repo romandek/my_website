@@ -32,7 +32,7 @@ const Labels = ({ list }: NotesProps) => {
               sx={{ variant: `links.listItem`, mr: 2 }}
               to={replaceSlashes(`/${basePath}/${labelsPath}/${kebabCase(listItem.fieldValue)}`)}
             >
-              {listItem.fieldValue} <span sx={{ color: `secondary` }}>({listItem.totalCount})</span>
+              {listItem.fieldValue} <span sx={{ color: `tertiary` }}>({listItem.totalCount})</span>
             </TLink>
           </Flex>
         ))}

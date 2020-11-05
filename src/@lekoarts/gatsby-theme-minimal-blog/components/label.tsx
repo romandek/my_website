@@ -39,7 +39,7 @@ const Label = ({ notes, pageContext }: LabelProps) => {
       <SEO title={`Label: ${pageContext.name}`} />
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, flexFlow: `wrap` }}>
         <Heading variant="styles.h1" sx={{ mt: 0 }}>{pageContext.name}</Heading>
-        <TLink as={Link} sx={{ variant: `links.secondary` }} to={replaceSlashes(`/${basePath}/${labelsPath}`)}>
+        <TLink as={Link} sx={{ variant: `links.tertiary` }} to={replaceSlashes(`/${basePath}/${labelsPath}`)}>
           View all labels
         </TLink>
       </Flex>

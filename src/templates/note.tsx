@@ -13,7 +13,7 @@ const shadow = px.map((v) => `rgba(0, 0, 0, 0.15) 0px ${v} ${v} 0px`)
 const Note = ({ data: { note } }) => (
   <Layout>
     <Heading variant="styles.h1" sx={{ mt: 0 }}>{note.title}</Heading>
-    <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
+    <p sx={{ color: `tertiary`, mt: 3, a: { color: `tertiary` }, fontSize: [1, 1, 2] }}>
       {note.labels && (
         <React.Fragment>
           <ItemLabels labels={note.labels} />

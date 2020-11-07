@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: development
   commit_messages:
     update: "Update {{collection}} '{{slug}}'"
     delete: "Delete {{collection}} '{{slug}}'"
@@ -16,7 +16,7 @@ collections:
     label: "Blog"
     label_singular: "Post" # Used in the UI, ie: "New Post"
     folder: "content/posts"
-    path: "{{title}}/index"
+    path: "{{title}}/index.mdx"
     create: true
     slug: "/blog/{{slug}}"
     editor:
@@ -39,7 +39,7 @@ collections:
     label: "Notes"
     label_singular: "Note" # Used in the UI, ie: "New Post"
     folder: "content/notes"
-    path: "{{title}}/index"
+    path: "{{title}}/index.mdx"
     create: true
     slug: "/notes/{{slug}}"
     editor:

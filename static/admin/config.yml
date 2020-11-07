@@ -19,6 +19,8 @@ collections:
     path: "{{title}}/index"
     create: true
     slug: "/blog/{{slug}}"
+    extension: mdx
+    format: frontmatter
     editor:
       preview: false
     fields:
@@ -42,6 +44,8 @@ collections:
     path: "{{title}}/index"
     create: true
     slug: "/notes/{{slug}}"
+    extension: mdx
+    format: frontmatter
     editor:
       preview: false
     fields:

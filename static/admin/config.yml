@@ -16,6 +16,7 @@ collections:
     label: "Blog"
     label_singular: "Post" # Used in the UI, ie: "New Post"
     folder: "content/posts"
+    path: "{{title}}/index"
     create: true
     slug: "/blog/{{slug}}"
     editor:
@@ -27,8 +28,8 @@ collections:
           name: "date", 
           widget: "datetime",
           date_format: 'YYYY-MM-DD',
-          time_format: 'HH:mm',
-          format: 'YYYY-MM-DD HH:mm'
+          time_format: 'HH:mm:ss',
+          format: 'YYYY-MM-DD HH:mm:ss'
         }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Description", name: "description", widget: "markdown", required: false }
@@ -38,6 +39,7 @@ collections:
     label: "Notes"
     label_singular: "Note" # Used in the UI, ie: "New Post"
     folder: "content/notes"
+    path: "{{title}}/index"
     create: true
     slug: "/notes/{{slug}}"
     editor:
@@ -49,9 +51,8 @@ collections:
           name: "date", 
           widget: "datetime",
           date_format: 'YYYY-MM-DD',
-          time_format: 'HH:mm',
-          format: 'YYYY-MM-DD HH:mm'
+          time_format: 'HH:mm:ss',
+          format: 'YYYY-MM-DD HH:mm:ss'
         }
       - { label: "Labels", name: "labels", widget: "list" }
-      - { label: "Description", name: "description", widget: "markdown", required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content goes here.' }

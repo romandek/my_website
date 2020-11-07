@@ -94,6 +94,7 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify-cms`,
     shouldAnalyseBundle && {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
@@ -116,6 +117,5 @@ module.exports = {
         ],
       }
     },
-    'gatsby-plugin-netlify-cms'
   ].filter(Boolean),
 }

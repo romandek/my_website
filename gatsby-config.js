@@ -116,5 +116,6 @@ module.exports = {
         ],
       }
     },
+    'gatsby-plugin-netlify-cms'
   ].filter(Boolean),
 }

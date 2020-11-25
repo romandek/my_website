@@ -43,7 +43,7 @@ collections:
     folder: "content/notes"
     path: "{{title}}/index"
     create: true
-    slug: "/notes/{{slug}}"
+    slug: "{{slug}}"
     extension: mdx
     format: frontmatter
     editor:

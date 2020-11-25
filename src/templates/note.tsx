@@ -31,10 +31,11 @@ const Note = ({ data: { note } }) => (
 export default Note
 
 export const query = graphql`
-    query($slug: String!) {
+    query($slug: String!, $formatString: String!) {
         note(slug: {eq: $slug}) {
           title
-          date
+          date(formatString: $formatString)
+          slug
           labels {
             name
             slug

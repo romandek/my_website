@@ -3,7 +3,7 @@ import { jsx, Heading, Link as TLink } from "theme-ui"
 import { Flex } from "@theme-ui/components"
 import { Link } from "gatsby"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
-import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
+import useMinimalBlogConfig from "../hooks/use-minimal-blog-config"
 import Listing from "./notes-listing"
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
@@ -30,9 +30,7 @@ type LabelProps = {
 }
 
 const Label = ({ notes, pageContext }: LabelProps) => {
-  const { basePath } = useMinimalBlogConfig()
-
-  const labelsPath = "/labels" //TODO: paremetrize!
+  const { basePath, labelsPath } = useMinimalBlogConfig()
 
   return (
     <Layout>

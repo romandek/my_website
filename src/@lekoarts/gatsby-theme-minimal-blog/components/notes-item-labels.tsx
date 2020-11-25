@@ -1,7 +1,7 @@
 import React from "react"
 import { Link as TLink } from "theme-ui"
 import { Link } from "gatsby"
-import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
+import useMinimalBlogConfig from "../hooks/use-minimal-blog-config"
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
 
 type LabelsProps = {
@@ -12,9 +12,7 @@ type LabelsProps = {
 }
 
 const ItemLabels = ({ labels }: LabelsProps) => {
-  const { basePath } = useMinimalBlogConfig()
-
-  const labelsPath = "/labels" //TODO: paremetrize!
+  const { basePath, labelsPath } = useMinimalBlogConfig()
 
   return (
     <React.Fragment>

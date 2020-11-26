@@ -166,16 +166,16 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   const latestNote = result.data.allNote.nodes[0]
   const labels = result.data.labels.group
 
-  allPosts.forEach((post) => { 
-    createPage({
-      path: `/${basePath}/${blogPath}/${post.slug}`.replace(/\/\/+/g, `/`),
-      component: postTemplate,
-      context: {
-        slug: post.slug,
-        formatString,
-      },
-    })
-  })
+  // allPosts.forEach((post) => { 
+  //   createPage({
+  //     path: `/${basePath}/${blogPath}/${post.slug}`.replace(/\/\/+/g, `/`),
+  //     component: postTemplate,
+  //     context: {
+  //       slug: post.slug,
+  //       formatString,
+  //     },
+  //   })
+  // })
 
   allNotes.forEach((note) => {
     createPage({
@@ -209,14 +209,14 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
 
   createRedirect({
     fromPath: "/blog/latest",
-    toPath: latestPost.slug,
+    toPath: `/${basePath}/${blogPath}/${latestPost.slug}`.replace(/\/\/+/g, `/`),
     isPermanent: true,
     force: true
   })
 
   createRedirect({
     fromPath: "/notes/latest",
-    toPath: latestNote.slug,
+    toPath: `/${basePath}/${notesPath}/${latestNote.slug}`.replace(/\/\/+/g, `/`),
     isPermanent: true,
     force: true
   })

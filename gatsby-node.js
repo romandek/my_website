@@ -1,5 +1,5 @@
 const kebabCase = require(`lodash.kebabcase`)
-const withDefaults = require(`@lekoarts/gatsby-theme-minimal-blog-core/utils/default-options`)
+const withDefaults = require(`./src/@lekoarts/gatsby-theme-minimal-blog-core/utils/default-options`)
 
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
@@ -37,12 +37,40 @@ exports.createSchemaCustomization = ({ actions }) => {
       timeToRead: Int @mdxpassthrough(fieldName: "timeToRead")
       labels: [NoteLabel]
       description: String
-    }
+    }    
   `)
 }
 
+exports.createResolvers = ({
+  actions,
+  createResolvers,
+}, themeOptions) => {
+
+  const { createNode } = actions
+
+  const { notesPath, labelsPath } = withDefaults(themeOptions)
+
+  createResolvers({
+    MinimalBlogConfig: {
+      notesPath: {
+        type: `String`,
+        resolve(source, args, context, info) {
+          return notesPath
+        },
+      },
+      labelsPath: {
+        type: `String`,
+        resolve(source, args, context, info) {
+          return labelsPath
+        },
+      },
+    },
+  })
+}
+
 exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDigest }) => {
-  const { createNode, createParentChildLink } = actions
+
+  const { createNode, createParentChildLink, createNodeField } = actions
 
   // Make sure that it's an MDX node
   if (node.internal.type !== `Mdx`) {
@@ -104,9 +132,7 @@ const labelTemplate = require.resolve(`./src/@lekoarts/gatsby-theme-minimal-blog
 exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   const { createRedirect, createPage } = actions
 
-  const { basePath, formatString } = withDefaults(themeOptions)
-
-  const labelsPath = "/labels" //TODO: parametrize!
+  const { basePath, notesPath, labelsPath, formatString } = withDefaults(themeOptions)
 
   const result = await graphql(`
     query {
@@ -140,10 +166,11 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
 
   allNotes.forEach((note) => {
     createPage({
-      path: note.slug,
+      path: `/${basePath}/${notesPath}/${note.slug}`.replace(/\/\/+/g, `/`),
       component: noteTemplate,
       context: {
         slug: note.slug,
+        formatString
       },
     })
   })
@@ -181,3 +208,21 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     force: true
   })
 } 
+
+exports.onCreatePage = ({ page, actions }, themeOptions) => {
+  const { createPage, deletePage } = actions
+
+  const { formatString } = withDefaults(themeOptions)
+
+  if (/^\/?notes\/?$/.test(page.path)) {
+    deletePage(page)
+    // You can access the variable "house" in your page queries now
+    createPage({
+      ...page,
+      context: {
+        ...page.context,
+        formatString,
+      },
+    })
+  }
+}

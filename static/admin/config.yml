@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: development
+  branch: drafts
   commit_messages:
     update: "Update {{collection}} '{{slug}}'"
     delete: "Delete {{collection}} '{{slug}}'"
@@ -43,7 +43,7 @@ collections:
     folder: "content/notes"
     path: "{{title}}/index"
     create: true
-    slug: "/notes/{{slug}}"
+    slug: "{{slug}}"
     extension: mdx
     format: frontmatter
     editor:

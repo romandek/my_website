@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import React from "react"
-import { jsx, Heading, Box, Link as TLink } from "theme-ui"
+import { jsx, Heading, Link as TLink } from "theme-ui"
 import { graphql, Link } from "gatsby"
 import { Flex } from "@theme-ui/components"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
-import NotesListItem from "../@lekoarts/gatsby-theme-minimal-blog/components/notes-list-item"
+import NotesListing from "../@lekoarts/gatsby-theme-minimal-blog/components/notes-listing"
 import useMinimalBlogConfig from "../@lekoarts/gatsby-theme-minimal-blog/hooks/use-minimal-blog-config"
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
@@ -21,9 +21,7 @@ const Notes = ({ data }) => {
           View all labels
         </TLink>
       </Flex>
-      {data.allNote.nodes.map(note => (
-        <NotesListItem key={note.slug} note={note} />
-      ))}
+      <NotesListing notes={data.allNote.nodes} sx={{ mt: [4, 5] }} />
     </Layout>
   )
 }

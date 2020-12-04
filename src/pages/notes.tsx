@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React from "react"
-import { jsx, Heading, Box, Link as TLink } from "theme-ui"
+import { jsx, Heading, Link as TLink } from "theme-ui"
 import { graphql, Link } from "gatsby"
 import { Flex } from "@theme-ui/components"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"

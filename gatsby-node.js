@@ -125,6 +125,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
   }
 }
 
+const postTemplate = require.resolve(`@lekoarts/gatsby-theme-minimal-blog-core/src/templates/post-query.tsx`)
 const noteTemplate = require.resolve(`./src/templates/note.tsx`)
 const labelsTemplate = require.resolve(`./src/@lekoarts/gatsby-theme-minimal-blog-core/src/templates/labels-query.tsx`)
 const labelTemplate = require.resolve(`./src/@lekoarts/gatsby-theme-minimal-blog-core/src/templates/label-query.tsx`)
@@ -132,7 +133,7 @@ const labelTemplate = require.resolve(`./src/@lekoarts/gatsby-theme-minimal-blog
 exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   const { createRedirect, createPage } = actions
 
-  const { basePath, notesPath, labelsPath, formatString } = withDefaults(themeOptions)
+  const { basePath, blogPath, notesPath, labelsPath, formatString } = withDefaults(themeOptions)
 
   const result = await graphql(`
     query {
@@ -141,7 +142,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
           slug
         }
       }
-      allPost(limit: 1, sort: {fields: date, order: DESC}) {
+      allPost(sort: { fields: date, order: DESC }) {
         nodes {
           slug
         }
@@ -160,9 +161,21 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   }
 
   const allNotes = result.data.allNote.nodes
+  const allPosts = result.data.allPost.nodes
   const latestPost = result.data.allPost.nodes[0]
   const latestNote = result.data.allNote.nodes[0]
   const labels = result.data.labels.group
+
+  // allPosts.forEach((post) => { 
+  //   createPage({
+  //     path: `/${basePath}/${blogPath}/${post.slug}`.replace(/\/\/+/g, `/`),
+  //     component: postTemplate,
+  //     context: {
+  //       slug: post.slug,
+  //       formatString,
+  //     },
+  //   })
+  // })
 
   allNotes.forEach((note) => {
     createPage({
@@ -196,14 +209,14 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
 
   createRedirect({
     fromPath: "/blog/latest",
-    toPath: latestPost.slug,
+    toPath: `/${basePath}/${blogPath}/${latestPost.slug}`.replace(/\/\/+/g, `/`),
     isPermanent: true,
     force: true
   })
 
   createRedirect({
     fromPath: "/notes/latest",
-    toPath: latestNote.slug,
+    toPath: `/${basePath}/${notesPath}/${latestNote.slug}`.replace(/\/\/+/g, `/`),
     isPermanent: true,
     force: true
   })

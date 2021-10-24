@@ -1,0 +1,9 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.tags": [
+    "JavaScript",
+    "OmniFocus",
+    "Productivity",
+    "gatsby"
+  ]
+}

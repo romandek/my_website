@@ -29,7 +29,7 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => {
 
   return (
     <Box mb={4}>
-      <TLink as={Link} to={replaceSlashes(`/${basePath}/${blogPath}/${post.slug}`)} sx={{ fontSize: [2, 3, 4], fontWeight: `medium`, color: `text` }}>
+      <TLink as={Link} to={replaceSlashes(`/${basePath}/${post.slug}`)} sx={{ fontSize: [2, 3, 4], fontWeight: `medium`, color: `text` }}>
         {post.title}
       </TLink>
       <p sx={{ color: `tertiary`, mt: 1, a: { color: `tertiary` }, fontSize: [1, 1, 2] }}>

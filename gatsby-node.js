@@ -12,7 +12,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String
     }
 
-    interface Note @nodeInterface {
+    interface Note implements Node {
       id: ID!
       slug: String!
       type: String!

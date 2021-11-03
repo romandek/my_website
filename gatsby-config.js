@@ -43,10 +43,10 @@ module.exports = {
           },
         ],
         externalLinks: [
-          {
-            name: `Twitter`,
-            url: `http://rdek.me/twitter`,
-          },
+          // {
+          //   name: `Twitter`,
+          //   url: `http://rdek.me/twitter`,
+          // },
           {
             name: `GitHub`,
             url: `http://rdek.me/git`,

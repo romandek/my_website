@@ -23,7 +23,7 @@ module.exports = {
       options: {
         mdx: false, 
         blogPath: "/blog",
-        postsPrefix: "blog/",
+        postsPrefix: "/blog",
         navigation: [
           {
             title: `Blog`,

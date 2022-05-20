@@ -209,7 +209,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
 
   createRedirect({
     fromPath: "/blog/latest",
-    toPath: `/${basePath}/${blogPath}/${latestPost.slug}`.replace(/\/\/+/g, `/`),
+    toPath: `/${basePath}/${latestPost.slug}`.replace(/\/\/+/g, `/`),
     isPermanent: true,
     force: true
   })
